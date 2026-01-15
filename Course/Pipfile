@@ -5,13 +5,18 @@ name = "pypi"
 
 [packages]
 uvicorn = "*"
-sqlalchemy = "*"
 pymongo = "*"
 pydantic = {extras = ["email"], version = "*"}
 python-multipart = "*"
-httpx = "*"
 fastapi = {extras = ["all"], version = "*"}
 pytest = "*"
+passlib = {extras = ["bcrypt"], version = "*"}
+sqlalchemy = "*"
+bcrypt = "==3.2.2"
+python-jose = {extras = ["cryptography"], version = "*"}
+httpx = "*"
+python-dotenv = "*"
+pyotp = "*"
 
 [dev-packages]
 

@@ -1,0 +1,59 @@
+@HttpFiles_HostAddress = http://localhost:8000
+
+# @name login
+# We name this request 'login' so we can reference its response later.
+POST {{HttpFiles_HostAddress}}/token
+Content-Type: application/x-www-form-urlencoded
+
+username=anubis&password=anubis
+
+###
+
+# Capture the 'access_token' from the JSON response of the 'login' request above.
+# This avoids manual copy-pasting of the token.
+@authToken = {{login.response.body.access_token}}
+
+# Use the captured token in the Authorization header to access the protected endpoint.
+GET {{HttpFiles_HostAddress}}/users/me
+Authorization: Bearer {{authToken}}
+
+###
+
+# Endpoint to simulate a session login.
+# It requires a valid JWT token in the Authorization header.
+# It sets a 'fakesession' cookie in the response.
+POST {{HttpFiles_HostAddress}}/login
+Authorization: Bearer {{authToken}}
+
+###
+
+# Endpoint to log out and clear the session cookie.
+# It also requires the JWT token to identify the user.
+POST {{HttpFiles_HostAddress}}/logout
+Authorization: Bearer {{authToken}}
+
+###
+
+# Register a new standard user.
+# This endpoint is public and does not require authentication.
+POST {{HttpFiles_HostAddress}}/register/user
+Content-Type: application/json
+
+{
+  "username": "jimi",
+  "email": "jimi@example.com",
+  "password": "jimi"
+}
+
+###
+
+# Register a new premium user.
+# This endpoint is likely defined in the premium_access router.
+POST {{HttpFiles_HostAddress}}/register/premium-user
+Content-Type: application/json
+
+{
+  "username": "sofi",
+  "email": "sofi@example.com",
+  "password": "sofi"
+}
