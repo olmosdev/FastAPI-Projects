@@ -1,4 +1,4 @@
-# SaaS Application 
+# SaaS Application
 
 This document provides a summary of a SaaS application built with FastAPI, focusing on its advanced security and authentication features. This project demonstrates how to implement the functionalities of a SaaS in a simple and abstract way.
 
@@ -66,3 +66,14 @@ The project is organized into several modules, each responsible for a specific f
 - **File:** `premium_access.py`
 - **Endpoint:** `POST /register/premium-user`
 - **Description:** The application has a concept of premium access. Certain endpoints are protected and can only be accessed by users with a premium subscription. This is checked via a dependency that verifies the user's subscription status.
+
+
+
+Note: To run the project you need an .env file with the following environment variables:
+
+```bash
+GITHUB_CLIENT_ID=<YOUR_GENERATED_GITHUB_CLIENT_ID>
+GITHUB_CLIENT_SECRET=<YOUR_GENERATED_GITHUB_CLIENT_SECRET>
+```
+
+How do I get that data? You need to follow the steps in the video [Sign in with GitHub OAuth in 5 minutes - YouTube](https://youtu.be/Bx1JqfPROXA?si=bBdNgQ_96LbpzRGQ)  starting at 3:43. Obviously, it's registered using the data from the app in this repository. This is a tutorial that can be used as a reference.
