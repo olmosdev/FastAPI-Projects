@@ -1,3 +1,8 @@
 Resources
 .env
-database.db
+database.
+__pycache__
+.pytest_cache
+production.db
+app.log
+.coverage

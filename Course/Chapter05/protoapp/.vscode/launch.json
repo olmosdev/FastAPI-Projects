@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Python Debugger FastAPI server",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "run_server.py",
+            "console": "integratedTerminal",
+        },
+    ]
+}

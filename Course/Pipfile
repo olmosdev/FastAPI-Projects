@@ -9,14 +9,17 @@ pymongo = "*"
 pydantic = {extras = ["email"], version = "*"}
 python-multipart = "*"
 fastapi = {extras = ["all"], version = "*"}
-pytest = "*"
 passlib = {extras = ["bcrypt"], version = "*"}
 sqlalchemy = "*"
 bcrypt = "==3.2.2"
 python-jose = {extras = ["cryptography"], version = "*"}
-httpx = "*"
 python-dotenv = "*"
 pyotp = "*"
+pytest = "*"
+pytest-asyncio = "*"
+httpx = "*"
+pytest-cov = "*"
+locust = "*"
 
 [dev-packages]
 
